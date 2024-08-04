@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
-
-
+import { HeaderComponent } from './header/header.component';
+import { PrimeNGImportsModule } from './primeng.module';
 
 @NgModule({
   declarations: [],
   imports: [
-    SidebarComponent,
-    FooterComponent
+    PrimeNGImportsModule,
+    FooterComponent,
+    HeaderComponent
   ],
   exports: [
-    SidebarComponent,
-    FooterComponent
+    PrimeNGImportsModule,
+    FooterComponent,
+    HeaderComponent
   ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
