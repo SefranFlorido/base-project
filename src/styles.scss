@@ -6,12 +6,8 @@ app-root {
   flex-direction: column;
   height: 97.6vh;
   width: 100%;
-  router-outlet {
-    flex: 0.7;
+  router-outlet + *,
+  main {
     height: 97.6vh;
-  }
-  app-header,
-  app-footer {
-    flex: 0.15;
   }
 }
