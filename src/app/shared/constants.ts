@@ -1,5 +1,8 @@
+import { changeLanguage } from '../core/services/services';
+
 export const MENU_ITEMS = [
   { label: 'Inicio', icon: 'pi pi-home' },
+  { label: 'Servicios', icon: 'pi pi-star' },
   {
     label: '¿Quién Soy?',
     icon: 'pi pi-id-card',
@@ -19,5 +22,22 @@ export const MENU_ITEMS = [
       { label: 'Cajón desastre', icon: 'pi pi-box' },
     ],
   },
-  { label: 'Contact', icon: 'pi pi-address-book' },
+  { label: 'Contacto', icon: 'pi pi-address-book' },
+];
+
+export const LANGUAGE_ITEMS = [
+  {
+    label: 'ES',
+    icon: 'c-icons es-icon',
+    command: () => {
+      changeLanguage('es');
+    },
+  },
+  {
+    label: 'EN',
+    icon: 'c-icons en-icon',
+    command: () => {
+      changeLanguage('en');
+    },
+  },
 ];
