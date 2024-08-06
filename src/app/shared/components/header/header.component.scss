@@ -1,0 +1,40 @@
+::ng-deep {
+  p-inputswitch .p-inputswitch-slider {
+    margin-top: 0.5rem;
+    height: 1.75rem;
+  }
+
+  p-menubar {
+    .p-menuitem-link {
+      color: black;
+      text-decoration: none;
+    }
+    p-menubarsub > ul {
+      margin-bottom: 0;
+    }
+  }
+
+  p-speeddial {
+    display: inherit;
+    text-align: end;
+    height: 3rem;
+
+    .p-speeddial {
+      justify-content: end;
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .p-speeddial-button {
+      border: 0;
+      padding: 1.4rem;
+      height: 1rem;
+    }
+  }
+}
+
+.col > span {
+  margin: 1rem;
+  margin-right: 0;
+}

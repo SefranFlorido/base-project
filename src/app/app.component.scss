@@ -1,0 +1,14 @@
+:host ::ng-deep {
+  .c-icons {
+    width: 20px;
+    height: 15px;
+  }
+
+  .es-icon {
+    background-image: url("/assets/flags/es.svg");
+  }
+
+  .en-icon {
+    background-image: url("/assets/flags/en.svg");
+  }
+}

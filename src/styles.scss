@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 97.6vh;
+  width: 100%;
+  router-outlet {
+    flex: 0.7;
+    height: 97.6vh;
+  }
+  app-header,
+  app-footer {
+    flex: 0.15;
+  }
+}
