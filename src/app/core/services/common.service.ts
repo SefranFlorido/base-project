@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
@@ -6,7 +7,10 @@ import { MenuItem } from 'primeng/api';
   providedIn: 'root',
 })
 export class CommonService {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   private MENU_ITEMS: MenuItem[] = [
     {
@@ -83,8 +87,15 @@ export class CommonService {
   }
 
   changeRoute(path: string) {
-    //TODO: change route
-    console.log(path);
     this.router.navigate([path]);
+  }
+
+  changeTheme(themeStyle: string) {
+    let themeLink = this.document.getElementById(
+      'app-theme'
+    ) as HTMLLinkElement;
+    if (themeLink) {
+      themeLink.href = `${themeStyle}-theme.css`;
+    }
   }
 }

@@ -25,6 +25,6 @@ export class HeaderComponent {
 
   handleChangeThemeMode(e: any) {
     this.darkMode = e.checked;
-    //TODO: change general app mode, use a service
+    this.commonServices.changeTheme(this.darkMode ? 'dark' : 'light');
   }
 }
