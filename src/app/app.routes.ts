@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { PersonalComponent } from './pages/personal/personal.component';
-import { ProfessionalComponent } from './pages/professional/professional.component';
+import { ProfessionalPageComponent } from './pages/professional-page/professional-page.component';
+import { PersonalPageComponent } from './pages/personal-page/personal-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ServicesPageComponent } from './pages/services-page/services-page.component';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'contact', component: ContactComponent},
-    {path: 'personal', component: PersonalComponent},
-    {path: 'professional', component: ProfessionalComponent}
+  { path: '', component: HomePageComponent },
+  { path: 'services', component: ServicesPageComponent },
+  { path: 'contact', component: ContactPageComponent },
+  { path: 'personal', component: PersonalPageComponent },
+  { path: 'professional', component: ProfessionalPageComponent },
 ];

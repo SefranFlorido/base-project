@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { LANGUAGE_ITEMS, MENU_ITEMS } from '../../constants';
 import { AppModule } from '../../../app.module';
+import { Router } from '@angular/router';
+import { CommonService } from '../../../core/services/common.service';
 
 @Component({
   selector: 'app-header',
@@ -15,11 +16,11 @@ export class HeaderComponent {
   languageItems: MenuItem[] = [];
   darkMode: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router, private commonServices: CommonService) {}
 
   ngOnInit() {
-    this.menuItems = MENU_ITEMS;
-    this.languageItems = LANGUAGE_ITEMS;
+    this.menuItems = this.commonServices.getMenuItems();
+    this.languageItems = this.commonServices.getLanguageItems();
   }
 
   handleChangeThemeMode(e: any) {
