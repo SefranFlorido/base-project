@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
-import { PrimeNGConfig } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
+import { CommonService } from './core/services/common.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,18 +13,35 @@ import { PrimeNGConfig } from 'primeng/api';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'base-project';
+export class AppComponent implements OnInit, OnDestroy {
+  public title = 'Sefran Florido';
+  private commonServiceSubscription!: Subscription;
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor(
+    private translate: TranslateService,
+    private commonService: CommonService
+  ) {
+    this.setAppLang(this.translate.getBrowserLang()!);
+  }
 
   ngOnInit() {
-    this.primengConfig.ripple = true;
-    this.primengConfig.zIndex = {
-      modal: 1100, // dialog, sidebar
-      overlay: 1000, // dropdown, overlaypanel
-      menu: 1000, // overlay menus
-      tooltip: 1100, // tooltip
-    };
+    this.commonServiceSubscription = this.commonService.serviceData.subscribe(
+      (data) => {
+        if (data) {
+          if (data.lang) {
+            this.setAppLang(data.lang);
+          }
+        }
+      }
+    );
+  }
+
+  setAppLang(lang: string = 'es') {
+    this.translate.setDefaultLang(lang);
+    this.translate.use(lang);
+  }
+
+  ngOnDestroy() {
+    this.commonServiceSubscription.unsubscribe();
   }
 }

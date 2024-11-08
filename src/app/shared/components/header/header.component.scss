@@ -4,32 +4,19 @@
     height: 1.75rem;
   }
 
-  p-menubar {
-    .p-menuitem-link {
-      color: black;
-      text-decoration: none;
-    }
-    p-menubarsub > ul {
-      margin-bottom: 0;
-    }
-  }
-
   p-speeddial {
-    display: inherit;
-    text-align: end;
-    height: 3rem;
-
     .p-speeddial {
-      justify-content: end;
-      position: relative;
       display: flex;
       flex-direction: row-reverse;
+      justify-content: end;
+      position: relative;
     }
 
     .p-speeddial-button {
       border: 0;
-      padding: 1.4rem;
+      padding: 1.5rem;
       height: 1rem;
+      width: 1rem;
     }
   }
 }

@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,9 @@ export class CommonService {
     private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) {}
+
+  private dataSource = new BehaviorSubject<any>(null);
+  public serviceData = this.dataSource.asObservable();
 
   private MENU_ITEMS: MenuItem[] = [
     {
@@ -82,8 +86,7 @@ export class CommonService {
   }
 
   changeLanguage(lang: string) {
-    //TODO: change language
-    console.log(lang);
+    this.dataSource.next({ lang });
   }
 
   changeRoute(path: string) {

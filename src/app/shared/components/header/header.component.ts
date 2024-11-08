@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AppModule } from '../../../app.module';
-import { Router } from '@angular/router';
 import { CommonService } from '../../../core/services/common.service';
 
 @Component({
@@ -11,12 +10,12 @@ import { CommonService } from '../../../core/services/common.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   menuItems: MenuItem[] = [];
   languageItems: MenuItem[] = [];
   darkMode: boolean = false;
 
-  constructor(private router: Router, private commonServices: CommonService) {}
+  constructor(private commonServices: CommonService) {}
 
   ngOnInit() {
     this.menuItems = this.commonServices.getMenuItems();
